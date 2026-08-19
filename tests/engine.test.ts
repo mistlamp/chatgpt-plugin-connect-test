@@ -42,7 +42,8 @@ describe('Tetris rules engine', () => {
     board = lockPiece(board, createPiece('O', { x: 8, y: BOARD_HEIGHT - 2 }));
     const result = clearLines(board);
     expect(result.lines).toBe(1);
-    expect(result.board[BOARD_HEIGHT - 1].every(c => c === null)).toBe(true);
+    expect(result.board[0].every(c => c === null)).toBe(true);
+    expect(result.board[BOARD_HEIGHT - 1].slice(8)).toEqual([1, 1]);
   });
 
   it('uses standard line-clear scoring', () => {
