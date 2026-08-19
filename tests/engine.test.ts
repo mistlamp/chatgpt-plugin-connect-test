@@ -42,7 +42,9 @@ describe('Tetris rules engine', () => {
     board = lockPiece(board, createPiece('O', { x: 8, y: BOARD_HEIGHT - 2 }));
     const result = clearLines(board);
     expect(result.lines).toBe(1);
-    expect(result.board[BOARD_HEIGHT - 1].every(c => c === null)).toBe(true);
+    // The O piece occupies rows 18 and 19. After row 19 is cleared,
+    // its remaining row shifts down to row 19, so those two cells remain.
+    expect(result.board[BOARD_HEIGHT - 1].slice(8)).toEqual([1, 1]);
   });
 
   it('uses standard line-clear scoring', () => {
