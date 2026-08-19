@@ -8,7 +8,7 @@ export type Point = { x: number; y: number };
 export type PieceType = 'I' | 'O' | 'T' | 'S' | 'Z' | 'J' | 'L';
 export type Piece = { type: PieceType; rotation: number; position: Point };
 
-const SHAPES: Record<PieceType, Point[][]> = {
+const SHAPES: Record<PieceType, Point[]> = {
   I: [{x:-1,y:0},{x:0,y:0},{x:1,y:0},{x:2,y:0}],
   O: [{x:0,y:0},{x:1,y:0},{x:0,y:1},{x:1,y:1}],
   T: [{x:-1,y:0},{x:0,y:0},{x:1,y:0},{x:0,y:1}],
